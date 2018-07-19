@@ -2,12 +2,412 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "workflow-presenter": {
+      "root": "apps/workflow-presenter/",
+      "sourceRoot": "apps/workflow-presenter/src",
+      "projectType": "application",
+      "prefix": "prst",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/workflow-presenter",
+            "index": "apps/workflow-presenter/src/index.html",
+            "main": "apps/workflow-presenter/src/main.ts",
+            "polyfills": "apps/workflow-presenter/src/polyfills.ts",
+            "tsConfig": "apps/workflow-presenter/tsconfig.app.json",
+            "assets": [
+              "apps/workflow-presenter/src/favicon.ico",
+              "apps/workflow-presenter/src/assets"
+            ],
+            "styles": [
+              "apps/workflow-presenter/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/workflow-presenter/src/environments/environment.ts",
+                  "with": "apps/workflow-presenter/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "workflow-presenter:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "workflow-presenter:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "workflow-presenter:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/workflow-presenter/src/test.ts",
+            "polyfills": "apps/workflow-presenter/src/polyfills.ts",
+            "tsConfig": "apps/workflow-presenter/tsconfig.spec.json",
+            "karmaConfig": "apps/workflow-presenter/karma.conf.js",
+            "styles": [
+              "apps/workflow-presenter/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/workflow-presenter/src/favicon.ico",
+              "apps/workflow-presenter/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/workflow-presenter/tsconfig.app.json",
+              "apps/workflow-presenter/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "workflow-presenter-e2e": {
+      "root": "apps/workflow-presenter-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/workflow-presenter-e2e/protractor.conf.js",
+            "devServerTarget": "workflow-presenter:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/workflow-presenter-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "workflow-manager": {
+      "root": "apps/workflow-manager/",
+      "sourceRoot": "apps/workflow-manager/src",
+      "projectType": "application",
+      "prefix": "mgr",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/workflow-manager",
+            "index": "apps/workflow-manager/src/index.html",
+            "main": "apps/workflow-manager/src/main.ts",
+            "polyfills": "apps/workflow-manager/src/polyfills.ts",
+            "tsConfig": "apps/workflow-manager/tsconfig.app.json",
+            "assets": [
+              "apps/workflow-manager/src/favicon.ico",
+              "apps/workflow-manager/src/assets"
+            ],
+            "styles": [
+              "apps/workflow-manager/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/workflow-manager/src/environments/environment.ts",
+                  "with": "apps/workflow-manager/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "workflow-manager:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "workflow-manager:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "workflow-manager:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/workflow-manager/src/test.ts",
+            "polyfills": "apps/workflow-manager/src/polyfills.ts",
+            "tsConfig": "apps/workflow-manager/tsconfig.spec.json",
+            "karmaConfig": "apps/workflow-manager/karma.conf.js",
+            "styles": [
+              "apps/workflow-manager/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/workflow-manager/src/favicon.ico",
+              "apps/workflow-manager/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/workflow-manager/tsconfig.app.json",
+              "apps/workflow-manager/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "workflow-manager-e2e": {
+      "root": "apps/workflow-manager-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/workflow-manager-e2e/protractor.conf.js",
+            "devServerTarget": "workflow-manager:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/workflow-manager-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "calendar": {
+      "root": "apps/calendar/",
+      "sourceRoot": "apps/calendar/src",
+      "projectType": "application",
+      "prefix": "cal",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/calendar",
+            "index": "apps/calendar/src/index.html",
+            "main": "apps/calendar/src/main.ts",
+            "polyfills": "apps/calendar/src/polyfills.ts",
+            "tsConfig": "apps/calendar/tsconfig.app.json",
+            "assets": [
+              "apps/calendar/src/favicon.ico",
+              "apps/calendar/src/assets"
+            ],
+            "styles": [
+              "apps/calendar/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/calendar/src/environments/environment.ts",
+                  "with": "apps/calendar/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "calendar:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "calendar:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "calendar:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/calendar/src/test.ts",
+            "polyfills": "apps/calendar/src/polyfills.ts",
+            "tsConfig": "apps/calendar/tsconfig.spec.json",
+            "karmaConfig": "apps/calendar/karma.conf.js",
+            "styles": [
+              "apps/calendar/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/calendar/src/favicon.ico",
+              "apps/calendar/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/calendar/tsconfig.app.json",
+              "apps/calendar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "calendar-e2e": {
+      "root": "apps/calendar-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/calendar-e2e/protractor.conf.js",
+            "devServerTarget": "calendar:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/calendar-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "insights": {
+      "root": "libs/insights",
+      "sourceRoot": "libs/insights/src",
+      "projectType": "library",
+      "prefix": "insights",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/insights/src/test.ts",
+            "tsConfig": "libs/insights/tsconfig.spec.json",
+            "karmaConfig": "libs/insights/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/insights/tsconfig.lib.json",
+              "libs/insights/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "workflow": {
+      "root": "libs/workflow",
+      "sourceRoot": "libs/workflow/src",
+      "projectType": "library",
+      "prefix": "",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/workflow/src/test.ts",
+            "tsConfig": "libs/workflow/tsconfig.spec.json",
+            "karmaConfig": "libs/workflow/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/workflow/tsconfig.lib.json",
+              "libs/workflow/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
       "versionMismatch": false
     },
     "defaultCollection": "@nrwl/schematics"
-  }
+  },
+  "defaultProject": "workflow-presenter"
 }

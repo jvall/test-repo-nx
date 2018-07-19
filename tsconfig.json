@@ -16,6 +16,12 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@hotschedules/insights": [
+        "libs/insights/src/index.ts"
+      ],
+      "@hotschedules/workflow": [
+        "libs/workflow/src/index.ts"
+      ]
     }
   },
   "exclude": [
